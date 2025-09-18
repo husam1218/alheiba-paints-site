@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - {label: "Intro", name: "body", widget: "markdown"}
+          - {label: "Address", name: "address", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Engineer", name: "engineer", widget: "hidden", default: "المهندس عبدالله طاهر الحميقاني"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Caption", name: "caption", widget: "string"}
+      - {label: "Description", name: "body", widget: "markdown"}
