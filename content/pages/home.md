@@ -1,7 +1,7 @@
 ---
-title: "محلات الهيبة للدهانات والطلاء"
-hero_image: "/images/uploads/hero.jpg"
-address: "عدن، شارع الخمسين، مقابل فندق اللؤلؤة"
+title: محلات الهيبة للدهانات والطلاء
+hero_image: /images/uploads/8.jpg
+address: عدن، شارع الخمسين، مقابل فندق اللؤلؤة
 phone: "+967774665170"
 whatsapp: "+967774665170"
 ---
