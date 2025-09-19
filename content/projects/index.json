@@ -1,3 +1,5 @@
-[
-  "content/projects/example-project.md"
-]
+{
+  "items": [
+    "content/projects/example-project.md"
+  ]
+}
