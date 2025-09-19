@@ -10,12 +10,16 @@ async function loadHome() {
   document.getElementById("intro").innerHTML = body;
   document.getElementById("address").textContent = data.address;
   document.getElementById("phone-link").href = "tel:" + data.phone;
-  document.getElementById("whatsapp-link").href = "https://wa.me/" + data.whatsapp.replace(/\D/g, "");
+  document.getElementById("whatsapp-link").href =
+    "https://wa.me/" + data.whatsapp.replace(/\D/g, "");
 }
 
 async function loadProjects() {
-  const projectFiles = ["content/projects/example-project.md"]; 
   const container = document.getElementById("project-list");
+
+  // ✅ fetch the list of projects from index.json
+  const resList = await fetch("content/projects/index.json");
+  const projectFiles = await resList.json();
 
   for (const file of projectFiles) {
     const res = await fetch(file);
