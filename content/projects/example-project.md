@@ -3,7 +3,7 @@ title: مشروع صالة العرض - عدن
 engineer: المهندس عبدالله طاهر الحميقاني
 date: 2025-09-01
 gallery:
-  - image: /images/uploads/project1.jpg
+  - image: /images/uploads/1.jpg
     caption: الواجهة بعد الدهان
 ---
 
