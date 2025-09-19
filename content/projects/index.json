@@ -1,5 +1,5 @@
 {
   "items": [
-    "content/projects/index.json"
+    "content/projects/example-project.md content/projects/project-2.md"
   ]
 }
