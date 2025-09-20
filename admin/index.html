@@ -6,11 +6,12 @@
   <title>Admin</title>
 </head>
 <body>
-  <!-- Load Netlify Identity first -->
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+  <button onclick="netlifyIdentity.open('login')">تسجيل الدخول بحساب Google</button>
+
   <script>
-    // When a user logs in, redirect them to /admin/ (this helps confirmation flow)
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -22,7 +23,7 @@
     }
   </script>
 
-  <!-- Then load Netlify CMS -->
+  <!-- Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
 </html>
