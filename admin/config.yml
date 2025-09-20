@@ -4,7 +4,7 @@ backend:
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
-site_url: "https://YOUR-SITE.netlify.app"
+site_url: "https://alheibah.netlify.app"
 publish_mode: editorial_workflow
 
 collections:
