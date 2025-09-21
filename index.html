@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهيبة للدهانات والطلاء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 70px; /* Space for fixed header */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles - Improved for mobile */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        header.hide {
+            transform: translateY(-100%);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 8px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1591462655502-4d17ab5ccf43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: -70px;
+            padding-top: 130px;
+        }
+        
+        .hero h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            padding: 0 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            font-size: 1.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+        
+        /* Services */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 20px 15px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .service-card p {
+            font-size: 0.9rem;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .project-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 200px;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .project-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .project-card-overlay {
+            transform: translateY(0);
+        }
+        
+        .project-card-overlay h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .project-card-overlay p {
+            font-size: 0.8rem;
+        }
+        
+        /* Team */
+        .team {
+            background-color: var(--light);
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid var(--light);
+        }
+        
+        .team-member h3 {
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .team-member .role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .team-member p {
+            font-size: 0.9rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            color: var(--accent);
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .contact-item p {
+            font-size: 0.9rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            color: var(--dark);
+            margin-bottom: 18px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0 15px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-content .logo {
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .footer-content .logo h2 {
+            font-size: 1.5rem;
+            max-width: none;
+        }
+        
+        .footer-content p {
+            font-size: 0.9rem;
+            padding: 0 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            font-size: 0.8rem;
+        }
+        
+        /* Admin Button */
+        .admin-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--dark);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+        
+        .admin-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            header {
+                padding: 8px 0;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .logo {
+                font-size: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1rem;
+                max-width: 120px;
+            }
+            
+            .logo i {
+                font-size: 1.3rem;
+                margin-left: 5px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 60px);
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                transition: right 0.3s ease;
+                z-index: 999;
+                padding: 20px;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul li {
+                margin-right: 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 15px;
+                font-size: 1rem;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+            
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-item {
+                flex-direction: row;
+            }
+            
+            .contact-item i {
+                margin-left: 0;
+                margin-right: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .service-card {
+                padding: 15px 10px;
+            }
+            
+            .service-card i {
+                font-size: 2rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1rem;
+            }
+            
+            .contact-form {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-paint-roller"></i>
+                    <h1>الهيبة للدهانات والطلاء</h1>
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#projects">مشاريعنا</a></li>
+                        <li><a href="#team">فريقنا</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>الهيبة للدهانات والطلاء</h1>
+            <p>متخصصون في تقديم حلول الدهانات والطلاء لمشاريع المقاولات بكافة أحجامها. نتميز بالجودة والدقة في التنفيذ مع فريق فني متخصص تحت إشراف مهندسين ذوي خبرة.</p>
+            <a href="#contact" class="btn">اتصل بنا الآن</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>دهانات المباني</h3>
+                    <p>خدمات دهانات خارجية وداخلية للمباني السكنية والتجارية بأحدث التقنيات والألوان.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>دهانات الصناعية</h3>
+                    <p>تجهيز ودهان المنشآت الصناعية بمواد متخصصة مقاومة للعوامل البيئية المختلفة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>التصاميم الديكورية</h3>
+                    <p>تصاميم ديكورية مبتكرة باستخدام أحدث تقنيات الدهانات والألوان العصرية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">مشاريعنا</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 1">
+                    <div class="project-card-overlay">
+                        <h3>فيلا الشيخ</h3>
+                        <p>دهانات خارجية وداخلية</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 2">
+                    <div class="project-card-overlay">
+                        <h3>مجمع التجاري</h3>
+                        <p>دهانات وطلاء واقي</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1617104586642-0bcee0e06b0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 3">
+                    <div class="project-card-overlay">
+                        <h3>مبنى المكاتب</h3>
+                        <p>تصميم ديكوري حديث</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">فريقنا</h2>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="المهندس عبدالله طاهر الحميقاني">
+                <h3>المهندس عبدالله طاهر الحميقاني</h3>
+                <p class="role">المشرف على قطاع المشاريع</p>
+                <p>مهندس متخصص في دهانات وطلاء المباني بخبرة تزيد عن 15 عاماً في مجال المقاولات وتنفيذ المشاريع.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">اتصل بنا</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>عدن ، شارع الخمسين ، مقابل فندق اللؤلؤة</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>774665170</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>774665170</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@hibapaints.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>الأحد - الخميس: 8 صباح 8 مساءً<br>الجمعة - السبت: 10 صباحاً - 4 مساءً</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-paint-roller"></i>
+                    <h2>الهيبة للدهانات والطلاء</h2>
+                </div>
+                <p>متخصصون في تقديم حلول الدهانات والطلاء لمشاريع المقاولات بكافة أحجامها</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 الهيبة للدهانات والطلاء. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Button -->
+    <a href="/admin/" class="admin-btn">
+        <i class="fas fa-cog"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+
+        // Header hide on scroll
+        const header = document.getElementById('main-header');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scroll down
+                header.classList.add('hide');
+            } else {
+                // Scroll up
+                header.classList.remove('hide');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
