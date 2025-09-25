@@ -7,7 +7,7 @@
     {
       "title": "فيلا الشيخ",
       "description": "دهانات خارجية وداخلية",
-      "image": "static/img/uploads/20250909_204524.jpg"
+      "image": "static/img/uploads/project1.jpg"
     },
     {
       "title": "مجمع التجاري",
@@ -17,7 +17,12 @@
     {
       "title": "مبنى المكاتب",
       "description": "تصميم ديكوري حديث",
-      "image": "/img/uploads/project2.jpg"
+      "image": "static/img/uploads/project3.jpg"
+    },
+    {
+      "title": "حسام",
+      "description": "حححح",
+      "image": "/img/uploads/20250921_160245.jpg"
     }
   ]
 }
