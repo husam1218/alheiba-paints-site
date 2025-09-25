@@ -62,3 +62,10 @@ collections:
               - { label: "عنوان المشروع", name: "title", widget: "string" }
               - { label: "وصف المشروع", name: "description", widget: "string" }
               - { label: "صورة المشروع", name: "image", widget: "image" }
+- label: "الفوتر"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "رقم الهاتف", name: "phone", widget: "string" }
+              - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
+              - { label: "العنوان", name: "address", widget: "string" 
