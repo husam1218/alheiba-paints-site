@@ -43,3 +43,16 @@ collections:
           - { label: "Address", name: "address", widget: "string" }
           - { label: "Phone", name: "phone", widget: "string" }
           - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+
+
+- name: "homepage"
+    label: "الصفحة الرئيسية"
+    files:
+      - label: "بيانات الصفحة الرئيسية"
+        name: "home"
+        file: "content/home.json"
+        fields:
+          - {label: "العنوان الرئيسي", name: "hero_title", widget: "string"}
+          - {label: "الوصف المختصر", name: "hero_subtitle", widget: "string"}
+          - {label: "عن المؤسسة", name: "about_text", widget: "text"}
+          - {label: "صورة رئيسية", name: "hero_image", widget: "image"}
