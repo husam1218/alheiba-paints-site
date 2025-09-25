@@ -1,6 +1,4 @@
-
- // <!-- Script to load homepage content from Netlify CMS -->
-<script>
+// Load homepage content from Netlify CMS
 fetch('/content/home.json')
   .then(res => res.json())
   .then(data => {
@@ -43,12 +41,8 @@ fetch('/content/home.json')
     document.getElementById('footer-copyright').textContent = data.footer.copyright;
   })
   .catch(err => console.error('Failed to load homepage content:', err));
-</script>
-  
 
-
-
-/* Mobile menu toggle
+// Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
 
@@ -96,4 +90,4 @@ document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
             behavior: 'smooth'
         });
     });
-});*/
+});
