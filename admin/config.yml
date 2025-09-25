@@ -62,7 +62,7 @@ collections:
               - { label: "عنوان المشروع", name: "title", widget: "string" }
               - { label: "وصف المشروع", name: "description", widget: "string" }
               - { label: "صورة المشروع", name: "image", widget: "image" }
-- label: "قسم اتصل بنا"
+           - label: "قسم اتصل بنا"
             name: "contact"
             widget: "object"
             fields:
