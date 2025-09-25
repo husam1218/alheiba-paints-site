@@ -90,27 +90,7 @@
     <div class="container">
       <h2 class="section-title">مشاريعنا</h2>
       <div class="projects-grid" id="project-list">
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 1">
-          <div class="project-card-overlay">
-            <h3>فيلا الشيخ</h3>
-            <p>دهانات خارجية وداخلية</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 2">
-          <div class="project-card-overlay">
-            <h3>مجمع التجاري</h3>
-            <p>دهانات وطلاء واقي</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1617104586642-0bcee0e06b0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشروع 3">
-          <div class="project-card-overlay">
-            <h3>مبنى المكاتب</h3>
-            <p>تصميم ديكوري حديث</p>
-          </div>
-        </div>
+        <!-- سيتم تحميل المشاريع هنا من home.json -->
       </div>
     </div>
   </section>
@@ -123,23 +103,23 @@
         <div class="contact-info">
           <div class="contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <p>عدن ، شارع الخمسين ، مقابل فندق اللؤلؤة</p>
+            <p id="contact-address"></p>
           </div>
           <div class="contact-item">
             <i class="fas fa-phone"></i>
-            <p>774665170</p>
+            <p id="contact-phone"></p>
           </div>
           <div class="contact-item">
             <i class="fab fa-whatsapp"></i>
-            <p>774665170</p>
+            <p id="contact-whatsapp"></p>
           </div>
           <div class="contact-item">
             <i class="fas fa-envelope"></i>
-            <p>info@hibapaints.com</p>
+            <p id="contact-email"></p>
           </div>
           <div class="contact-item">
             <i class="fas fa-clock"></i>
-            <p>الأحد - الخميس: 8 صباح 8 مساءً<br>الجمعة - السبت: 10 صباحاً - 4 مساءً</p>
+            <p id="contact-hours"></p>
           </div>
         </div>
         <div class="contact-form">
@@ -170,18 +150,18 @@
       <div class="footer-content">
         <div class="logo">
           <i class="fas fa-paint-roller"></i>
-          <h2>مؤسسة الهيبة للدهانات</h2>
+          <h2 id="footer-title"></h2>
         </div>
-        <p>متخصصون في تقديم حلول الدهانات والطلاء لمشاريع المقاولات بكافة أحجامها</p>
+        <p id="footer-description"></p>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a id="footer-facebook" href="#"><i class="fab fa-facebook"></i></a>
+          <a id="footer-instagram" href="#"><i class="fab fa-instagram"></i></a>
+          <a id="footer-twitter" href="#"><i class="fab fa-twitter"></i></a>
+          <a id="footer-whatsapp" href="#"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="copyright">
-        <p>© 2025 مؤسسة الهيبة للدهانات. جميع الحقوق محفوظة.</p>
+        <p id="footer-copyright"></p>
       </div>
     </div>
   </footer>
@@ -192,19 +172,17 @@
   </a>
 
   <!-- Script to load homepage content from Netlify CMS -->
-  <div class="projects-grid" id="project-list"></div>
-
 <script>
 fetch('/content/home.json')
   .then(res => res.json())
   .then(data => {
-    // Hero section
+    // Hero
     document.getElementById('hero-title').textContent = data.hero_title;
     document.getElementById('hero-subtitle').textContent = data.hero_subtitle;
     document.getElementById('about-text').textContent = data.about_text;
     document.getElementById('hero-image').src = data.hero_image;
 
-    // Projects section
+    // Projects
     const projectList = document.getElementById('project-list');
     projectList.innerHTML = '';
     data.projects.forEach(project => {
@@ -219,22 +197,23 @@ fetch('/content/home.json')
       `;
       projectList.appendChild(card);
     });
-  })
-// Contact section
-document.getElementById('contact-address').textContent = data.contact.address;
-document.getElementById('contact-phone').textContent = data.contact.phone;
-document.getElementById('contact-whatsapp').textContent = data.contact.whatsapp;
-document.getElementById('contact-email').textContent = data.contact.email;
-document.getElementById('contact-hours').innerHTML = data.contact.working_hours;
 
-// Footer section
-document.getElementById('footer-title').textContent = data.footer.title;
-document.getElementById('footer-description').textContent = data.footer.description;
-document.getElementById('footer-facebook').href = data.footer.facebook;
-document.getElementById('footer-instagram').href = data.footer.instagram;
-document.getElementById('footer-twitter').href = data.footer.twitter;
-document.getElementById('footer-whatsapp').href = data.footer.whatsapp;
-document.getElementById('footer-copyright').textContent = data.footer.copyright;
+    // Contact
+    document.getElementById('contact-address').textContent = data.contact.address;
+    document.getElementById('contact-phone').textContent = data.contact.phone;
+    document.getElementById('contact-whatsapp').textContent = data.contact.whatsapp;
+    document.getElementById('contact-email').textContent = data.contact.email;
+    document.getElementById('contact-hours').innerHTML = data.contact.working_hours;
+
+    // Footer
+    document.getElementById('footer-title').textContent = data.footer.title;
+    document.getElementById('footer-description').textContent = data.footer.description;
+    document.getElementById('footer-facebook').href = data.footer.facebook;
+    document.getElementById('footer-instagram').href = data.footer.instagram;
+    document.getElementById('footer-twitter').href = data.footer.twitter;
+    document.getElementById('footer-whatsapp').href = data.footer.whatsapp;
+    document.getElementById('footer-copyright').textContent = data.footer.copyright;
+  })
   .catch(err => console.error('Failed to load homepage content:', err));
 </script>
   
