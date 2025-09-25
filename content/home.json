@@ -1,6 +1,25 @@
+
 {
   "hero_title": "مرحبا بكم في مؤسسة الهيبة للدهانات",
   "hero_subtitle": "أفضل الدهانات لجميع الاستخدامات",
   "about_text": "العسيري للخدمات",
-  "hero_image": "static/img/uploads/hero.jpg"
+  "hero_image": "static/img/uploads/hero.jpg",
+  
+  "projects": [
+    {
+      "title": "فيلا الشيخ",
+      "description": "دهانات خارجية وداخلية",
+      "image": "static/img/uploads/project1.jpg"
+    },
+    {
+      "title": "مجمع التجاري",
+      "description": "دهانات وطلاء واقي",
+      "image": "static/img/uploads/project2.jpg"
+    },
+    {
+      "title": "مبنى المكاتب",
+      "description": "تصميم ديكوري حديث",
+      "image": "static/img/uploads/project3.jpg"
+    }
+  ]
 }
