@@ -823,5 +823,17 @@
             });
         });
     </script>
+
+<script>
+fetch('/content/home.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('hero-title').textContent = data.hero_title;
+    document.getElementById('hero-subtitle').textContent = data.hero_subtitle;
+    document.getElementById('about-text').textContent = data.about_text;
+    document.getElementById('hero-image').src = data.hero_image;
+  })
+  .catch(err => console.error('Failed to load homepage content:', err));
+</script>
 </body>
 </html>
