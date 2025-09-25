@@ -1,5 +1,5 @@
 
-  <!-- Script to load homepage content from Netlify CMS -->
+ // <!-- Script to load homepage content from Netlify CMS -->
 <script>
 fetch('/content/home.json')
   .then(res => res.json())
