@@ -220,6 +220,21 @@ fetch('/content/home.json')
       projectList.appendChild(card);
     });
   })
+// Contact section
+document.getElementById('contact-address').textContent = data.contact.address;
+document.getElementById('contact-phone').textContent = data.contact.phone;
+document.getElementById('contact-whatsapp').textContent = data.contact.whatsapp;
+document.getElementById('contact-email').textContent = data.contact.email;
+document.getElementById('contact-hours').innerHTML = data.contact.working_hours;
+
+// Footer section
+document.getElementById('footer-title').textContent = data.footer.title;
+document.getElementById('footer-description').textContent = data.footer.description;
+document.getElementById('footer-facebook').href = data.footer.facebook;
+document.getElementById('footer-instagram').href = data.footer.instagram;
+document.getElementById('footer-twitter').href = data.footer.twitter;
+document.getElementById('footer-whatsapp').href = data.footer.whatsapp;
+document.getElementById('footer-copyright').textContent = data.footer.copyright;
   .catch(err => console.error('Failed to load homepage content:', err));
 </script>
   
