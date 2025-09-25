@@ -30,4 +30,10 @@
       "image": "static/img/uploads/project5.jpg"
     }
   ]
+
+  "footer": {
+    "phone": "+967-777777777",
+    "whatsapp": "+967-777777777",
+    "address": "صنعاء - شارع تعز"
+  }
 }
