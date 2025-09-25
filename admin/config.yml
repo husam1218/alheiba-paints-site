@@ -55,3 +55,10 @@ collections:
           - { label: "الوصف المختصر", name: "hero_subtitle", widget: "string" }
           - { label: "عن المؤسسة", name: "about_text", widget: "text" }
           - { label: "صورة رئيسية", name: "hero_image", widget: "image" }
+          - label: "مشاريعنا"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "عنوان المشروع", name: "title", widget: "string" }
+              - { label: "وصف المشروع", name: "description", widget: "string" }
+              - { label: "صورة المشروع", name: "image", widget: "image" }
