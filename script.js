@@ -48,7 +48,7 @@ fetch('/content/home.json')
 
 
 
-// Mobile menu toggle
+/* Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
 
@@ -96,4 +96,4 @@ document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
             behavior: 'smooth'
         });
     });
-});
+});*/
