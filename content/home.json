@@ -1,10 +1,8 @@
-
 {
   "hero_title": "مرحبا بكم في مؤسسة الهيبة للدهانات",
   "hero_subtitle": "أفضل الدهانات لجميع الاستخدامات",
-  "about_text": "العسيري للخدمات",
+  "about_text": "حسام العسيري",
   "hero_image": "static/img/uploads/hero.jpg",
-  
   "projects": [
     {
       "title": "فيلا الشيخ",
