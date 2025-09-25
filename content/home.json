@@ -24,6 +24,11 @@
       "title": "الحيدري",
       "description": "مقاولات",
       "image": "static/img/uploads/project1.jpg"
+    },
+    {
+      "title": "حقل مرة",
+      "description": "خارجي",
+      "image": "static/img/uploads/project2.jpg"
     }
   ]
 }
