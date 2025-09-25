@@ -1,52 +1,22 @@
 {
-  "hero_title": "مرحبا بكم في مؤسسة الهيبة للدهانات",
+  "hero_title": "الهيبة للدهانات والطلاء",
   "hero_subtitle": "أفضل الدهانات لجميع الاستخدامات",
-  "about_text": "حسام العسيري",
+  "about_text": "متميزون",
   "hero_image": "static/img/uploads/hero.jpg",
-  "projects": [
-    {
-      "title": "فيلا الشيخ",
-      "description": "دهانات خارجية وداخلية",
-      "image": "static/img/uploads/project1.jpg"
-    },
-    {
-      "title": "مجمع التجاري",
-      "description": "دهانات وطلاء واقي",
-      "image": "static/img/uploads/project2.jpg"
-    },
-    {
-      "title": "مبنى المكاتب",
-      "description": "تصميم ديكوري حديث",
-      "image": "static/img/uploads/project3.jpg"
-    },
-    {
-      "title": "حسام",
-      "description": "حححح",
-      "image": "static/img/uploads/project6.jpg"
-    },
-    {
-      "title": "Ali",
-      "description": "Ali",
-      "image": "static/img/uploads/project5.jpg"
-    }
-  ]
-
-   "contact": {
-    "address": "عدن ، شارع الخمسين ، مقابل فندق اللؤلؤة",
+  "contact": {
+    "address": "عدن",
     "phone": "774665170",
     "whatsapp": "774665170",
-    "email": "info@hibapaints.com",
-    "working_hours": "الأحد - الخميس: 8 صباح 8 مساءً<br>الجمعة - السبت: 10 صباحاً - 4 مساءً"
+    "email": "alasiry1218@gmail.com ",
+    "working_hours": "من الصباح"
   },
-
   "footer": {
-    "title": "مؤسسة الهيبة للدهانات",
-    "description": "متخصصون في تقديم حلول الدهانات والطلاء لمشاريع المقاولات بكافة أحجامها",
-    "facebook": "#",
-    "instagram": "#",
-    "twitter": "#",
-    "whatsapp": "#",
-    "copyright": "© 2025 مؤسسة الهيبة للدهانات. جميع الحقوق محفوظة."
+    "title": "عدن",
+    "description": "متميزون",
+    "facebook": "almarrok@facebook.com",
+    "instagram": "Husam@instgram.com",
+    "twitter": "Hussam@twitter.com",
+    "whatsapp": "Hussa.@whatsap.com",
+    "copyright": "محفوظة"
   }
-  
 }
