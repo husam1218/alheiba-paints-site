@@ -18,5 +18,12 @@
     "twitter": "Hussam@twitter.com",
     "whatsapp": "Hussa.@whatsap.com",
     "copyright": "محفوظة"
-  }
+  },
+  "projects": [
+    {
+      "title": "الحيدري",
+      "description": "مقاولات",
+      "image": "static/img/uploads/project1.jpg"
+    }
+  ]
 }
