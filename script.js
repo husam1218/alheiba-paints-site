@@ -123,13 +123,24 @@ if (mainNav) {
   });
 }
 
-// Form submission
+// Remove the current form submission handler and replace with:
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
-    this.reset();
+    // Optional: Add loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'جاري الإرسال...';
+    submitBtn.disabled = true;
+    
+    // Form will be submitted to Formspree automatically
+    // You can keep the alert for immediate feedback
+    setTimeout(() => {
+      alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
+      this.reset();
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }, 1000);
   });
 }
 
