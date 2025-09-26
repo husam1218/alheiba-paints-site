@@ -123,24 +123,27 @@ if (mainNav) {
   });
 }
 
-// Remove the current form submission handler and replace with:
-const contactForm = document.querySelector('.contact-form form');
+// Netlify Forms handling
+const contactForm = document.querySelector('form[name="contact"]');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
-    // Optional: Add loading state
+    // Optional: Add loading state for better UX
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
+    
     submitBtn.textContent = 'جاري الإرسال...';
     submitBtn.disabled = true;
     
-    // Form will be submitted to Formspree automatically
-    // You can keep the alert for immediate feedback
+    // Let Netlify handle the submission
+    // The form will be submitted normally
+    
+    // Show success message after a short delay
     setTimeout(() => {
+      // This will show after Netlify processes the form
       alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
-      this.reset();
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-    }, 1000);
+    }, 2000);
   });
 }
 
