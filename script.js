@@ -5,7 +5,7 @@ fetch('/content/home.json')
     // Hero
     document.getElementById('hero-title').textContent = data.hero_title;
     document.getElementById('hero-subtitle').textContent = data.hero_subtitle;
-    document.getElementById('about-text').textContent = data.about_text;
+   //document.getElementById('about-text').textContent = data.about_text;
     document.getElementById('hero-image').src = data.hero_image;
 
     // Projects
