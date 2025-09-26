@@ -27,10 +27,10 @@ fetch('/content/home.json')
     // Contact
     document.getElementById('contact-address').textContent = data.contact.address;
     document.getElementById('contact-phone').textContent = data.contact.phone;
-phoneEl.href = `tel:${data.contact.phone}`;
+//phoneEl.href = `tel:${data.contact.phone}`;
     document.getElementById('contact-whatsapp').textContent = data.contact.whatsapp;
     document.getElementById('contact-email').textContent = data.contact.email;
-emailEl.href = `mailto:${data.contact.email}`;
+//emailEl.href = `mailto:${data.contact.email}`;
     document.getElementById('contact-hours').innerHTML = data.contact.working_hours;
 
     // Footer
