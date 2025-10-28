@@ -80,15 +80,43 @@ fetch('/content/home.json')
   })
   .catch(err => console.error('Failed to load homepage content:', err));
 
-// Mobile menu toggle
+// Mobile drawer toggle (uses #side-drawer and #drawer-overlay)
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
+const sideDrawer = document.getElementById('side-drawer');
+const drawerOverlay = document.getElementById('drawer-overlay');
+const drawerCloseBtn = document.querySelector('.drawer-close-btn');
 
-if (mobileMenuBtn && mainNav) {
-  mobileMenuBtn.addEventListener('click', function() {
-    mainNav.classList.toggle('active');
-  });
+function openDrawer() {
+  if (!sideDrawer || !drawerOverlay) return;
+  sideDrawer.setAttribute('aria-hidden', 'false');
+  drawerOverlay.hidden = false;
+  drawerOverlay.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  // focus first focusable element inside drawer
+  const first = sideDrawer.querySelector('a, button, input, [tabindex]:not([tabindex="-1"])');
+  if (first) first.focus();
 }
+
+function closeDrawer() {
+  if (!sideDrawer || !drawerOverlay) return;
+  sideDrawer.setAttribute('aria-hidden', 'true');
+  drawerOverlay.hidden = true;
+  drawerOverlay.style.display = '';
+  document.body.style.overflow = '';
+  if (mobileMenuBtn) mobileMenuBtn.focus();
+}
+
+if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+// close on Escape
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' && sideDrawer && sideDrawer.getAttribute('aria-hidden') === 'false') {
+    closeDrawer();
+  }
+});
 
 // Header hide on scroll with throttling
 const header = document.getElementById('main-header');
@@ -114,14 +142,15 @@ if (header) {
   });
 }
 
-// Close menu when clicking on a link
-if (mainNav) {
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      mainNav.classList.remove('active');
-    });
+// Close drawer when clicking on any nav link
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function() {
+    // if desktop nav, no drawer to close; just ensure overlay/drawer closed
+    closeDrawer();
+    // Also remove any active class on mainNav if present
+    if (mainNav) mainNav.classList.remove('active');
   });
-}
+});
 
 // Netlify Forms handling
 const contactForm = document.querySelector('form[name="contact"]');
