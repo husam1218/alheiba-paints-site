@@ -123,6 +123,16 @@ footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:
   #main-nav ul li a:hover{background:rgba(14,20,30,0.03)}
 }
 
+/* Center the logo title on small screens without affecting layout */
+@media (max-width:600px){
+  /* keep the header content flow but center the logo visually */
+  .header-content{position:relative}
+  .logo{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px}
+  .logo h1{margin:0;font-size:1rem;text-align:center}
+  /* ensure the mobile menu button remains clickable at the edge */
+  .mobile-menu-btn{position:relative;z-index:1250}
+}
+
 @media (min-width:900px){
   .header-content{gap:18px}
   .container{padding:0 24px}
