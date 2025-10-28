@@ -104,8 +104,10 @@ footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:
 .footer-content .social-links{flex:0 0 auto;display:flex;gap:10px;align-items:center}
 /* ensure description can shrink and wrap safely */
 .footer-content > *{flex:1 1 260px;min-width:0}
-.footer-content p{flex:1 1 420px;min-width:0;color:#9ca3af;overflow-wrap:break-word;word-break:break-word;margin:0}
-.footer-content .logo h2{margin:0;font-size:1.1rem;line-height:1.2}
+.footer-content p{flex:1 1 420px;min-width:0;color:#9ca3af;overflow-wrap:break-word;word-break:break-word;margin:0;margin-top:8px;line-height:1.4}
+.footer-content .logo h2{display:block;margin:0 0 8px 0;font-size:1.1rem;line-height:1.2;word-break:break-word}
+.footer-content .logo{margin-bottom:12px}
+.footer-content .logo i{font-size:1.35rem}
 .social-links a{color:#cbd5e1;font-size:1.25rem}
 .social-links a:hover{color:var(--accent)}
 /* keep copyright full-width below the flexible footer content */
@@ -119,8 +121,9 @@ footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:
   /* force children to stack and occupy available width */
   .footer-content > *{flex:0 0 auto;width:100%;max-width:720px;min-width:0}
   .footer-content p{flex:0 0 auto;text-align:center;margin:6px 0;overflow-wrap:break-word}
-  .footer-content .logo{display:flex;justify-content:center;align-items:center;gap:8px}
+  .footer-content .logo{display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:10px}
   .footer-content .logo h2{font-size:1rem;line-height:1.2;word-break:break-word}
+  .footer-content p{margin-top:10px}
   .social-links{display:flex;justify-content:center;gap:12px;margin:6px 0}
   .social-links a{margin:0 6px}
 }
