@@ -90,6 +90,7 @@ const drawerCloseBtn = document.querySelector('.drawer-close-btn');
 function openDrawer() {
   if (!sideDrawer || !drawerOverlay) return;
   sideDrawer.setAttribute('aria-hidden', 'false');
+  if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
   drawerOverlay.hidden = false;
   drawerOverlay.style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -101,6 +102,7 @@ function openDrawer() {
 function closeDrawer() {
   if (!sideDrawer || !drawerOverlay) return;
   sideDrawer.setAttribute('aria-hidden', 'true');
+  if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
   drawerOverlay.hidden = true;
   drawerOverlay.style.display = '';
   document.body.style.overflow = '';

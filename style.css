@@ -34,12 +34,17 @@ header{position:fixed;inset:0 0 auto 0;height:72px;background:linear-gradient(90
 @media(min-width:880px){
   .mobile-menu-btn{display:none}
   #main-nav{display:block}
+  /* ensure desktop nav displays inline */
+  #main-nav ul{display:flex}
   .side-drawer{display:none}
   .drawer-overlay{display:none}
   header{padding:0 24px}
   .logo h1{font-size:1.1rem}
   nav ul{display:flex;gap:18px}
 }
+
+/* Visual hint when menu button expanded */
+.mobile-menu-btn[aria-expanded="true"]{background:rgba(255,255,255,0.06)}
 
 /* Hero */
 .hero{background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)),url('https://images.unsplash.com/photo-1591462655502-4d17ab5ccf43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover;padding:68px 0 90px;color:#fff;text-align:center;margin-top:-72px}
