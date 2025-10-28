@@ -104,6 +104,23 @@ footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:
   nav ul{display:none}
   .mobile-menu-btn{display:inline-block}
   header{left:8px;right:8px}
+
+  /* mobile dropdown nav */
+  #main-nav{
+    position:fixed;
+    top:84px; /* below the header */
+    left:12px;
+    right:12px;
+    z-index:1199;
+    display:none;
+  }
+
+  #main-nav.active{display:block}
+
+  #main-nav ul{display:flex;flex-direction:column;gap:8px;background:var(--panel);padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(12,14,25,0.08)}
+
+  #main-nav ul li a{display:block;padding:10px 14px;border-radius:8px;color:var(--primary)}
+  #main-nav ul li a:hover{background:rgba(14,20,30,0.03)}
 }
 
 @media (min-width:900px){
