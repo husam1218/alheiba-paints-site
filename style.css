@@ -93,19 +93,31 @@ footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:
   display:flex;
   flex-direction:column;
   gap:18px;
-  align-items:center;
+  /* align items at the top to avoid vertical overlap when items are side-by-side */
+  align-items:flex-start;
   /* allow items to wrap when content is long */
   flex-wrap:wrap;
 }
 .footer-content .logo{display:flex;align-items:center;gap:10px;color:#fff}
-/* ensure each footer column can shrink without causing overflow */
+/* layout hints: keep logo and social compact, allow description to take remaining space */
+.footer-content .logo{flex:0 0 auto}
+.footer-content .social-links{flex:0 0 auto;display:flex;gap:10px;align-items:center}
+/* ensure description can shrink and wrap safely */
 .footer-content > *{flex:1 1 260px;min-width:0}
+.footer-content p{flex:1 1 420px;min-width:0;color:#9ca3af;overflow-wrap:break-word;word-break:break-word;margin:0}
 .footer-content .logo h2{margin:0;font-size:1.1rem;line-height:1.2}
-.footer-content p{max-width:none;color:#9ca3af;overflow-wrap:break-word;word-break:break-word}
 .social-links a{color:#cbd5e1;font-size:1.25rem}
 .social-links a:hover{color:var(--accent)}
 /* keep copyright full-width below the flexible footer content */
-.copyright{width:100%;border-top:1px solid rgba(255,255,255,0.04);padding-top:18px;margin-top:24px;font-size:.9rem;color:#9ca3af}
+.copyright{width:100%;border-top:1px solid rgba(255,255,255,0.04);padding-top:12px;margin-top:12px;font-size:.9rem;color:#9ca3af}
+
+/* responsive tweak: on small screens keep centered layout */
+@media (max-width:900px){
+  .footer-content{align-items:center}
+  .footer-content p{flex:1 1 100%;text-align:center}
+  .footer-content .logo{justify-content:center}
+  .social-links{justify-content:center}
+}
 
 /* Admin Button */
 .admin-btn{position:fixed;left:18px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px;border-radius:999px;box-shadow:0 10px 30px rgba(96,165,250,0.12)}
