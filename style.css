@@ -89,12 +89,23 @@ section{padding:64px 0}
 
 /* Footer */
 footer{background:linear-gradient(180deg,#091022,#07111b);color:#d1d5db;padding:50px 0}
-.footer-content{display:flex;flex-direction:column;gap:18px;align-items:center}
+.footer-content{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+  /* allow items to wrap when content is long */
+  flex-wrap:wrap;
+}
 .footer-content .logo{display:flex;align-items:center;gap:10px;color:#fff}
-.footer-content p{max-width:880px;color:#9ca3af}
+/* ensure each footer column can shrink without causing overflow */
+.footer-content > *{flex:1 1 260px;min-width:0}
+.footer-content .logo h2{margin:0;font-size:1.1rem;line-height:1.2}
+.footer-content p{max-width:none;color:#9ca3af;overflow-wrap:break-word;word-break:break-word}
 .social-links a{color:#cbd5e1;font-size:1.25rem}
 .social-links a:hover{color:var(--accent)}
-.copyright{border-top:1px solid rgba(255,255,255,0.04);padding-top:18px;margin-top:8px;font-size:.9rem;color:#9ca3af}
+/* keep copyright full-width below the flexible footer content */
+.copyright{width:100%;border-top:1px solid rgba(255,255,255,0.04);padding-top:18px;margin-top:24px;font-size:.9rem;color:#9ca3af}
 
 /* Admin Button */
 .admin-btn{position:fixed;left:18px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px;border-radius:999px;box-shadow:0 10px 30px rgba(96,165,250,0.12)}
