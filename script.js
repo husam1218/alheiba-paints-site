@@ -80,29 +80,59 @@ fetch('/content/home.json')
   })
   .catch(err => console.error('Failed to load homepage content:', err));
 
-// Mobile menu toggle (adds aria support and click-outside close)
+// Mobile menu toggle with enhanced functionality
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
+const body = document.body;
 
 if (mobileMenuBtn && mainNav) {
-  // accessibility
+  // Accessibility
   mobileMenuBtn.setAttribute('aria-controls', 'main-nav');
   mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  mobileMenuBtn.setAttribute('aria-label', 'قائمة الموقع');
 
-  mobileMenuBtn.addEventListener('click', function(e) {
-    const isActive = mainNav.classList.toggle('active');
+  const toggleMenu = (isActive) => {
+    mainNav.classList.toggle('active', isActive);
     mobileMenuBtn.setAttribute('aria-expanded', String(isActive));
+    body.style.overflow = isActive ? 'hidden' : '';
+    
+    // Toggle menu icon between hamburger and close
+    const menuIcon = mobileMenuBtn.querySelector('i');
+    if (menuIcon) {
+      menuIcon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
+    }
+  };
+
+  // Toggle menu on button click
+  mobileMenuBtn.addEventListener('click', function(e) {
+    const isActive = !mainNav.classList.contains('active');
+    toggleMenu(isActive);
     e.stopPropagation();
   });
 
-  // close menu when clicking outside
+  // Close menu when clicking outside
   document.addEventListener('click', function(ev) {
-    if (!mainNav.contains(ev.target) && !mobileMenuBtn.contains(ev.target)) {
-      if (mainNav.classList.contains('active')) {
-        mainNav.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      }
+    if (mainNav.classList.contains('active') && 
+        !mainNav.contains(ev.target) && 
+        !mobileMenuBtn.contains(ev.target)) {
+      toggleMenu(false);
     }
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+      toggleMenu(false);
+    }
+  });
+
+  // Close menu when clicking on a link
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mainNav.classList.contains('active')) {
+        toggleMenu(false);
+      }
+    });
   });
 }
 
@@ -163,22 +193,47 @@ if (contactForm) {
   });
 }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
+// Enhanced smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
     
-    // Only handle internal links
-    if (targetId.startsWith('#')) {
+    // Only handle internal links that exist on the page
+    if (targetId !== '#') {
       e.preventDefault();
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
+        // Get the header height to offset the scroll position
+        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight - 20; // 20px extra spacing
+
         window.scrollTo({
-          top: targetElement.offsetTop - 70,
+          top: offsetPosition,
           behavior: 'smooth'
         });
+
+        // Update URL without adding to browser history
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        } else {
+          location.hash = targetId;
+        }
       }
     }
   });
+});
+
+// Handle page load with hash in URL
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+      setTimeout(() => {
+        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+        window.scrollTo(0, targetElement.offsetTop - headerHeight);
+      }, 100);
+    }
+  }
 });
