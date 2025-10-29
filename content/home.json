@@ -1,5 +1,5 @@
 {
-  "hero_title": "الهيبة",
+  "hero_title": "الهيبة للدهانات والطلاء",
   "hero_subtitle": "أفضل الدهانات لجميع الاستخدامات",
   "about_text": " متميزون في جميع انواع ",
   "hero_image": "static/img/uploads/logo.png",
@@ -8,16 +8,16 @@
     "phone": "7774665170",
     "whatsapp": "774665170",
     "email": "alasiry1218@gmail.com ",
-    "working_hours": " الى المساءمن الصباح "
+    "working_hours": "من الصباح"
   },
   "footer": {
-    "title": "عدن- شارع الخمسين-جوالر مؤسسة الحيدري للكهرباء",
-    "description": "محلات الهيبة متخصصة في بيع وتنفيذ مشاريع الطلاء",
+    "title": "عدن",
+    "description": "متميزون",
     "facebook": "almarrok@facebook.com",
     "instagram": "Husam@instgram.com",
     "twitter": "Hussam@twitter.com",
     "whatsapp": "https://wa.me/967774665170",
-    "copyright": "© 2025 محلات الهيبة - جميع الحقوق محفوظة"
+    "copyright": "محفوظة"
   },
   "projects": [
     {
@@ -29,11 +29,6 @@
       "title": "حقل مرة",
       "description": "خارجي",
       "image": "static/img/uploads/project2.jpg"
-    },
-    {
-      "title": "Yyy",
-      "description": "Yyy",
-      "image": "static/img/uploads/20251027_183232.jpg"
     }
   ]
 }
