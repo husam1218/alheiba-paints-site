@@ -80,49 +80,6 @@ fetch('/content/home.json')
   })
   .catch(err => console.error('Failed to load homepage content:', err));
 
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mainNav = document.getElementById('main-nav');
-
-if (mobileMenuBtn && mainNav) {
-  mobileMenuBtn.addEventListener('click', function() {
-    mainNav.classList.toggle('active');
-  });
-}
-
-// Header hide on scroll with throttling
-const header = document.getElementById('main-header');
-let lastScrollY = window.scrollY;
-let ticking = false;
-
-function updateHeader() {
-  if (window.scrollY > lastScrollY && window.scrollY > 100) {
-    header.classList.add('hide');
-  } else {
-    header.classList.remove('hide');
-  }
-  lastScrollY = window.scrollY;
-  ticking = false;
-}
-
-if (header) {
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateHeader);
-      ticking = true;
-    }
-  });
-}
-
-// Close menu when clicking on a link
-if (mainNav) {
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      mainNav.classList.remove('active');
-    });
-  });
-}
-
 // Form submission
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
@@ -132,23 +89,3 @@ if (contactForm) {
     this.reset();
   });
 }
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    
-    // Only handle internal links
-    if (targetId.startsWith('#')) {
-      e.preventDefault();
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 70,
-          behavior: 'smooth'
-        });
-      }
-    }
-  });
-});
