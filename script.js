@@ -80,59 +80,13 @@ fetch('/content/home.json')
   })
   .catch(err => console.error('Failed to load homepage content:', err));
 
-// Mobile menu toggle with enhanced functionality
+// Mobile menu toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.getElementById('main-nav');
-const body = document.body;
 
 if (mobileMenuBtn && mainNav) {
-  // Accessibility
-  mobileMenuBtn.setAttribute('aria-controls', 'main-nav');
-  mobileMenuBtn.setAttribute('aria-expanded', 'false');
-  mobileMenuBtn.setAttribute('aria-label', 'قائمة الموقع');
-
-  const toggleMenu = (isActive) => {
-    mainNav.classList.toggle('active', isActive);
-    mobileMenuBtn.setAttribute('aria-expanded', String(isActive));
-    body.style.overflow = isActive ? 'hidden' : '';
-    
-    // Toggle menu icon between hamburger and close
-    const menuIcon = mobileMenuBtn.querySelector('i');
-    if (menuIcon) {
-      menuIcon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
-    }
-  };
-
-  // Toggle menu on button click
-  mobileMenuBtn.addEventListener('click', function(e) {
-    const isActive = !mainNav.classList.contains('active');
-    toggleMenu(isActive);
-    e.stopPropagation();
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', function(ev) {
-    if (mainNav.classList.contains('active') && 
-        !mainNav.contains(ev.target) && 
-        !mobileMenuBtn.contains(ev.target)) {
-      toggleMenu(false);
-    }
-  });
-
-  // Close menu on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-      toggleMenu(false);
-    }
-  });
-
-  // Close menu when clicking on a link
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (mainNav.classList.contains('active')) {
-        toggleMenu(false);
-      }
-    });
+  mobileMenuBtn.addEventListener('click', function() {
+    mainNav.classList.toggle('active');
   });
 }
 
@@ -169,71 +123,32 @@ if (mainNav) {
   });
 }
 
-// Netlify Forms handling
-const contactForm = document.querySelector('form[name="contact"]');
+// Form submission
+const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
-    // Optional: Add loading state for better UX
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.textContent = 'جاري الإرسال...';
-    submitBtn.disabled = true;
-    
-    // Let Netlify handle the submission
-    // The form will be submitted normally
-    
-    // Show success message after a short delay
-    setTimeout(() => {
-      // This will show after Netlify processes the form
-      alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }, 2000);
+    e.preventDefault();
+    alert('شكراً لتواصلكم! سنرد عليكم في أقرب وقت.');
+    this.reset();
   });
 }
 
-// Enhanced smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a, .hero .btn').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
     
-    // Only handle internal links that exist on the page
-    if (targetId !== '#') {
+    // Only handle internal links
+    if (targetId.startsWith('#')) {
       e.preventDefault();
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        // Get the header height to offset the scroll position
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight - 20; // 20px extra spacing
-
         window.scrollTo({
-          top: offsetPosition,
+          top: targetElement.offsetTop - 70,
           behavior: 'smooth'
         });
-
-        // Update URL without adding to browser history
-        if (history.pushState) {
-          history.pushState(null, null, targetId);
-        } else {
-          location.hash = targetId;
-        }
       }
     }
   });
-});
-
-// Handle page load with hash in URL
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.location.hash) {
-    const targetElement = document.querySelector(window.location.hash);
-    if (targetElement) {
-      setTimeout(() => {
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        window.scrollTo(0, targetElement.offsetTop - headerHeight);
-      }, 100);
-    }
-  }
 });
