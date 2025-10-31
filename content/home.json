@@ -29,6 +29,11 @@
       "title": "حقل مرة",
       "description": "خارجي",
       "image": "static/img/uploads/project2.jpg"
+    },
+    {
+      "title": "مشروع المحكمة",
+      "description": "طلاء واضافة مادة عازلة للاسطح",
+      "image": "static/img/uploads/20250921_160245.jpg"
     }
   ]
 }
